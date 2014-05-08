@@ -94,9 +94,17 @@
     console.log(wordCount(ipsum));
 
     //--------------------------------------------------------
+    /* 
+     4.  create a function named 'charCount'
+         - accept 1 parameter into the function that is a long string of text
+         - return length of the array of string characters
+         - console.log the answer outside of the function*/
     console.log("4. sentence char count");
 
-        //PUT FUNCTION HERE
+    function charCount(string){
+        var stringLength = string.length;
+        return stringLength;
+    }
 
     console.log(charCount(ipsum));
 
