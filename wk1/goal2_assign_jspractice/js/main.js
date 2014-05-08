@@ -58,9 +58,20 @@
     console.log('avg number = ', avgNumbers([1,2,3,4,5]));
 
     //--------------------------------------------------------
+    /*
+         2.  create a function named 'fullName'
+         - accept 2 parameters into the function that are strings (firstname and lastname)
+         - return the name after it has been concatenated
+         - console.log the answer outside of the function*/
+
     console.log("2. concat first and last name");
 
-        //PUT FUNCTION HERE
+       function fullName(firstname, lastname){
+            var fullname = [firstname, lastname];
+            var fullname = fullname.join(' ');
+            return fullname;
+
+        }
 
     console.log(fullName('James', 'Bond'));
 
