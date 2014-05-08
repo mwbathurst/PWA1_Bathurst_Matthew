@@ -4,7 +4,9 @@
  Instructor: Fialishia OLoughlin
  Assignment: Week #1 :: { Homework } - DEBUG IT! v2 (4h)
  Assignment Date:  May 5 - May 11, 2014 (Week 1)
+ Date Finished: Thursday May 8, 2014
  file: search.js
+
 
  */
 // Create privatized scope using a self-executing function
