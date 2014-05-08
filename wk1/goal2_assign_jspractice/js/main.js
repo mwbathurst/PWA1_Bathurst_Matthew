@@ -76,10 +76,20 @@
     console.log(fullName('James', 'Bond'));
 
     //--------------------------------------------------------
+   /*     3.  create a function named 'wordCount'
+         - accept 1 parameter into the function that is a long string of text words
+         - create a function that counts all the words and return the answer
+         - console.log the answer outside of the function
+    */
+
     console.log("3. word count");
     var ipsum = "this is test text that is being used as input to a function"
 
-        //PUT FUNCTION HERE
+   function wordCount(string){
+        var stringArray = string.split(' ');
+        results = stringArray.length;
+        return results;
+    }
 
     console.log(wordCount(ipsum));
 
