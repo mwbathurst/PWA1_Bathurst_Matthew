@@ -4,7 +4,9 @@ Programming for Web Applications I - Online
 Instructor: Fialishia OLoughlin
 Assignment: Week #1 :: { Homework } - DEBUG IT! v2 (4h)
 Assignment Date:  May 5 - May 11, 2014 (Week 1)
-file: search.js
+file: search.js 
+
+While fixing code I have added fixed comments for backtracking purpose
 */
 // Create privatized scope using a self-executing function
 (function(){
@@ -16,7 +18,8 @@ file: search.js
 	;
 	
 	// Validates search query
-	var validqte == function(query){
+	// FIX 1: var validqte == function(query)
+	var validqte = function(query){
 		
 		// Trim whitespace from start and end of search query
 		while(query.charAt(0) = " "){
@@ -28,8 +31,8 @@ file: search.js
 		
 		// Check search length, must have 3 characters
 		if(query.length < 3){
-			alert("Your search query is too small, try again.);
-			
+			alert("Your search query is too small, try again.");
+			// FIX 2 : FINISHED STRING
 			// (DO NOT FIX THE LINE DIRECTLY BELOW)
 			searchInput.focus();
 			return;
@@ -39,8 +42,8 @@ file: search.js
 	};
 	
 	// Finds search matches
-	var search = function(query)
-		
+	var search = function(query){
+		//FIX 3 FORGOT FUNCTION GRAMMER function(){}
 		// split the user's search query string into an array
 		var queryArray = query.join(" ");
 		
@@ -123,6 +126,6 @@ file: search.js
         // return false is needed for most events - this will be reviewed in upcoming course material
         // THE LINE DIRECTLY BELOW IS CORRECT
 		return false;
-	;
+	};
 
-})();
+};
