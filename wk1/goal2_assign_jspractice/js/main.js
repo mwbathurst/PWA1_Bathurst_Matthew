@@ -109,13 +109,49 @@
     console.log(charCount(ipsum));
 
     //--------------------------------------------------------
+    /*
+     create a function named 'vowelsInWord'
+         - accept 1 parameter into the function that is a a one word string
+         - return the number of vowels in the word
+         - console.log the answer outside of the function
+    */
     console.log("5. how many vowels in a word");
+    function vowelsInWord(word){
+        var word = word.toLowerCase();
+        var vowelcount = 0;
+        for( i = 0, j = word.length; i<j; i++){
+            if(word.charAt(i) == "a"){
+                vowelcount++;
+            }else if(word.charAt(i) == "e"){
+                vowelcount++;
+            }else if(word.charAt(i) == "i"){
+                vowelcount++;
+            }else if(word.charAt(i) == "o"){
+                vowelcount++;
+            }else if(word.charAt(i) == "u"){
+                vowelcount++;
+            }else{
+                continue;
+            }
 
-        //PUT FUNCTION HERE
+        } 
+        return vowelcount;
+    }
 
     console.log(vowelsInWord('JavaScript'));
 
     //--------------------------------------------------------
+    /*
+      6.  create a function named 'findNum'
+         - accepts 2 parameters into the function - 1. array of numbers, 2. boolean
+         - if the second parameter being passed is "false" or null then
+             - create an array with all of the odd numbers from
+                the array
+         - else - create an array with all of the even numbers
+            from the array
+         - return the array
+         - console.log the answer outside of the function
+    */
     console.log("6. find number and create an array of even or odd numbers");
 
         //PUT FUNCTION HERE
