@@ -9,3 +9,28 @@
 
 
  */
+(function(){
+
+    // Fighter Names: string variables
+
+    var fighterOneName = "Kabal";
+    var fighterTwoName = "Kratos";
+
+    // Fighters' starting health: Num variables
+
+    var fighterOneHealth = 100;
+    var fighterTwoHealth = 100;
+
+        function fight(){
+            //round counter
+            for (var i = 1, round = 10; i <= round; i++){
+              console.log("This is Round", i, " of a scheduled ", round, " championship match.");
+          }
+        }
+    fight();
+    /*
+        function winnerCheck(){
+
+        }
+    */
+})();
