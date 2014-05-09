@@ -10,7 +10,7 @@
 
  */
 (function(){
-
+    console.log("It's Fight Night");
     // Fighter Names: string variables
     var fighterOneName = "Kabal";
     var fighterTwoName = "Kratos";
@@ -29,20 +29,38 @@
     So, if the player's damage variable is 50 then the amount of damage that can be inflicted will be between 25-50. */
     // Fighter Min Damage defined by the Assignment Guidelines
     var fighterOneMinDamage = fighterOneMaxDamage/2;
-    var figherTwoMinDamage = fighterTwoMaxDamage/2;
+    var fighterTwoMinDamage = fighterTwoMaxDamage/2;
 
-
-    // Fighter Introduction
-    console.log("Welcome to the Grudge Match of the Century! Today we have,", fighterOneName, "and", fighterTwoName, "to fight to the death for our pleasure!\n SO LET THE FIGHT BEGIN!");
-
+    var round = 0;
 
 
 
         function fight(){
             //round counter
+            // Random Damage Calculator based upon given equation.
+            // FightIntroduction
+            alert("Welcome to the Grudge Match of the Century! Today we have,");
+            alert(fighterOneName + ":" + fighterOneHealth + "  *START*  " + fighterTwoName + ":" + fighterTwoHealth);
+
             for (var i = 0; i < 10; i++){
-              console.log("This is Round", i, " of a scheduled", 10, "championship match.");
-          }
+                // Random Damage Calculator based upon given equation.
+                var damageFighterOne = Math.floor(Math.random()*(fighterOneMaxDamage-fighterOneMinDamage)+fighterOneMinDamage);
+                var damageFighterTwo = Math.floor(Math.random()*(fighterTwoMaxDamage-fighterTwoMinDamage)+fighterTwoMinDamage);
+
+                //Damage Inflicted and Recorded per round
+                fighterOneHealth-=damageFighterOne;
+                fighterTwoHealth-=damageFighterTwo;
+
+                matchResult= winnerCheck();
+                if(matchResult === "No Winner!"){
+                    console.log(fighterOneName + ":" + fighterOneHealth + " " + fighterTwoName + ":" + fighterTwoHealth);
+                }else{
+                    console.log("The Final Score\n" + fighterOneName + ":" + fighterOneHealth + " " + fighterTwoName + ":" + fighterTwoHealth);
+                    alert(matchResult);
+                    break;
+                }
+
+            }
         }
     fight();
 
@@ -53,13 +71,12 @@
             var result = "No Winner!";
             //Conditional statement that will output results
             if(fighterOneHealth < 1 && fighterTwoHealth < 1){
-                result = fighterOneName, "and", fighterTwoName, "have died, NO WINNER!";
+                result = fighterOneName + " and " + fighterTwoName + " have died, NO WINNER!";
             }else if(fighterOneHealth < 1){
-                result = fighterOneName, "has died. AND YOUR WINNER IS!", fighterTwoName.toUpperCase() +"!";
+                result = fighterOneName + " has died. AND YOUR WINNER IS! " + fighterTwoName.toUpperCase() +"!";
             }else if(fighterTwoHealth < 1){
-                result = fighterTwoName, "has died. AND YOUR winner is!", fighterOneName.toUpperCase() +"!";
+                result = fighterTwoName + " has died. AND YOUR winner is! " + fighterOneName.toUpperCase() +"!";
             }
             return result;
         }
-
 })();
