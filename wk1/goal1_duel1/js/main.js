@@ -21,8 +21,8 @@
     var fighterTwoHealth = 100;
 
     // Fighter Max Damage defined by the Assignment Guidelines
-    var fighterOneMaxDamage = 50;
-    var fighterTwoMaxDamage = 50;
+    var fighterOneMaxDamage = 15;
+    var fighterTwoMaxDamage = 15;
 
     /*
     Assignment Guideline for "Damage occurs to both players at a random amount between half damage and maximum damage.
@@ -31,12 +31,13 @@
     var fighterOneMinDamage = fighterOneMaxDamage/2;
     var fighterTwoMinDamage = fighterTwoMaxDamage/2;
 
-    var round = 0;
+    //round intializer 
+    var round = 1;
 
 
 
         function fight(){
-            //round counter
+          
             // Random Damage Calculator based upon given equation.
             // FightIntroduction
             alert("Welcome to the Grudge Match of the Century! Today we have,");
@@ -53,9 +54,10 @@
 
                 matchResult= winnerCheck();
                 if(matchResult === "No Winner!"){
-                    console.log(fighterOneName + ":" + fighterOneHealth + " " + fighterTwoName + ":" + fighterTwoHealth);
+                    console.log("Round", round, fighterOneName + ":" + fighterOneHealth + " " + fighterTwoName + ":" + fighterTwoHealth);
+                    round++;
                 }else{
-                    console.log("The Final Score\n" + fighterOneName + ":" + fighterOneHealth + " " + fighterTwoName + ":" + fighterTwoHealth);
+                    console.log("The Final Score\n" + "Round", round, fighterOneName + ":" + fighterOneHealth + " " + fighterTwoName + ":" + fighterTwoHealth);
                     alert(matchResult);
                     break;
                 }
