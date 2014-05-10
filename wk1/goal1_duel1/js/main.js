@@ -54,6 +54,7 @@ testing
                 fighterTwoHealth-=damageFighterTwo;
 
                 matchResult= winnerCheck();
+                // This Conditional outputs the results of the winnerCheck() function RESULTS to both a new alert allowing the user to continue to search for the winner or announcing the winner, also it creates a console log of round results for the user to view, in future versions this data could be converted to a set of arrays for some form of data harvesting if so desired
                 if(matchResult === "No Winner!"){
                     alert("Round " + round + ": " + fighterOneName + ":" + fighterOneHealth + " " + fighterTwoName + ":" + fighterTwoHealth);
                     console.log("Round", round, fighterOneName + ":" + fighterOneHealth + " " + fighterTwoName + ":" + fighterTwoHealth);
@@ -74,6 +75,7 @@ testing
 
             var result = "No Winner!";
             //Conditional statement that will output results BASED UPON HEALTH AND/OR ROUND
+            // Really the only time you''ll see the 10 round check nested conditional is if the damage of the fighters are modified to a lower amount
             if(fighterOneHealth < 1 && fighterTwoHealth < 1){
                 result = fighterOneName + " and " + fighterTwoName + " have died, NO WINNER!";
             }else if(fighterOneHealth < 1){
