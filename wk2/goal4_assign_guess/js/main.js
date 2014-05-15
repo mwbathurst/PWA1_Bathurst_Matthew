@@ -16,28 +16,38 @@
 
 		
 	// Calculation of the Magic Number using the Max and Min ceiling/floor defined in magicLimits
+	// -------Major Calculation Number ------
 	var magicNum = Math.floor((Math.random() * magicLimits.max) +magicLimits.min);
 
-	// Console.log for testing code
-
+	// Console.log for testing code, user will not see this unless console is viewed
 	console.log(magicNum);
-	// Variable setup for the GAME
+
+	// Changing Variables
 	var dom ={
 		input : document.querySelector('#input'),
 		output : document.querySelector('#output'),
 		button : document.querySelector('button'),
 	};
 
+	// Defines the guess limit, and how many have been made 
+	var guess = {
+		player :0,
+		limit: 3,
+		made:0
+	};
+	//Function that runs the game
+	var click = function(){
+		console.log(guess.limit);
+
+	};
+
+	var myfn = function(){
+		guess.player = parseInt(dom.input.value);
+		console.log(guess.limit, guess.player);
+	}
+	dom.button.onclick = myfn;
+
 	
-
-
-
-
-
-
-
-
-
 })();
 
 
