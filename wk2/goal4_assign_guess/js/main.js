@@ -41,9 +41,8 @@
 
 	};
 	*/
-
-
-	var numberVal = function(){
+// Creates function that breaks dom.button.click if guess limits have been reached
+		var numberVal = function(){
 		guess.player = parseInt(dom.input.value);
 
 		if(isNaN(guess.player)){
@@ -60,24 +59,59 @@
 
 
 
-	var game = function(){
-		guess.player = parseInt(dom.input.value);
-	
-		guess.limit--;
-		if(guess.limit < 0){
-			console.log("You've Reached your limit");
-			dom.button.removeEventListener('click', myfn, false);
-		}else{	
-			console.log(guess.limit, guess.player);
 
+	var limitCheck = function(){
+		if(guess.limit < 0){
+			console.log("You've Reached your Guess limit");
+			dom.button.removeEventListener('click', limitCheck, false);
+		}else{
+			numberVal();
 		}
 	}
 	
 
+
+
+
+	
+	var winnerCheck = function(){
+		if(guess.player == magicNum){
+			console.log("winner winner");
+			dom.button.removeEventListener('click', limitCheck, false)
+		}else if(guess.player > magicNum){
+			console.log("You have entered a number that is to high, please try one lower.");
+		}else{
+			console.log('You have entered a number that is to low, please try one that is larger');
+		}
+
+		}
+
+	
+
+
+	var game = function(){
+		guess.player = parseInt(dom.input.value);
+		guess.limit--;
+		guess.made++;
+
+
+
+		if(guess.limit < 0){
+			console.log("You've Reached your limit");
+			dom.output.innerHTML = "You've Reached your Guess Limit, Thank you come again!";
+			dom.button.removeEventListener('click', limitCheck, false);
+		}else{
+			winnerCheck();	
+			
+
+		}
+	}
+
+	
 	//clicking test
 	//dom.button.onclick = myfn;
 
-	dom.button.addEventListener('click', numberVal, false);
+	dom.button.addEventListener('click', limitCheck, false);
 })();
 
 
