@@ -80,7 +80,7 @@
 			window.open("https://www.youtube.com/watch?v=2KH2gc11XQU")
 			dom.button.removeEventListener('click', limitCheck, false)
 		}else if(guess.player > magicNum){
-			cdom.output.innerHTML = ("You have entered a number that is to high, please try one lower. You have " + guess.limit + " guesses left");
+			dom.output.innerHTML = ("You have entered a number that is to high, please try one lower. You have " + guess.limit + " guesses left");
 		}else{
 			dom.output.innerHTML = ('You have entered a number that is to low, please try one that is larger. You have ' + guess.limit + " guesses left");
 		}
