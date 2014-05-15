@@ -48,9 +48,9 @@
 		if(isNaN(guess.player)){
 			dom.output.innerHTML = "Please Enter a Number between " + magicLimits.min + " and " + magicLimits.max;
 		}else if(guess.player < magicLimits.min){
-			dom.output.innerHTML = "You have entered a number less than " + magicLimits.min + ". Please Enter a Number between " + magicLimits.min + " and " + magicLimits.max;
+			dom.output.innerHTML = "You have entered a number less than " + magicLimits.min + ". Please enter a number between " + magicLimits.min + " and " + magicLimits.max;
 		}else if(guess.player > magicLimits.max){
-			dom.output.innerHTML = "You have entered a number greater than " + magicLimits.max + ". Please Enter a Number between " + magicLimits.min + " and " + magicLimits.max;
+			dom.output.innerHTML = "You have entered a number greater than " + magicLimits.max + ". Please enter a number between " + magicLimits.min + " and " + magicLimits.max;
 		}else{
 			game();
 		}
@@ -79,9 +79,9 @@
 			console.log("winner winner");
 			dom.button.removeEventListener('click', limitCheck, false)
 		}else if(guess.player > magicNum){
-			console.log("You have entered a number that is to high, please try one lower.");
+			console.log("You have entered a number that is to high, please try one lower. You have " + guess.limit + " guesses left");
 		}else{
-			console.log('You have entered a number that is to low, please try one that is larger');
+			console.log('You have entered a number that is to low, please try one that is larger. You have ' + guess.limit + " guesses left");
 		}
 
 		}
@@ -94,11 +94,18 @@
 		guess.limit--;
 		guess.made++;
 
+		
 
-
-		if(guess.limit < 0){
+		if(guess.limit == 0 && guess.made == 3 && guess.player == magicNum){
+			dom.output.innerHTML = "You've Reached your Guess Limit, Thank you come again and now won in the nick of time";
+			dom.button.removeEventListener('click', limitCheck, false);
+		}else if(guess.limit == 0 && guess.made == 3){
+			dom.output.innerHTML = "You've Reached your Guess Limit, Thank you come again";
+			dom.button.removeEventListener('click', limitCheck, false);
+		}
+		else if(guess.limit == 0 && guess.made == 3){
 			console.log("You've Reached your limit");
-			dom.output.innerHTML = "You've Reached your Guess Limit, Thank you come again!";
+			dom.output.innerHTML = "You've Reached your Guess Limit, Thank you come again";
 			dom.button.removeEventListener('click', limitCheck, false);
 		}else{
 			winnerCheck();	
