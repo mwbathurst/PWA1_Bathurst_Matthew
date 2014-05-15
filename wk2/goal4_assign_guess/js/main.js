@@ -41,7 +41,7 @@
 
 	};
 	*/
-// Creates function that breaks dom.button.click if guess limits have been reached
+// validates the value to be a number, within the min/max limit
 		var numberVal = function(){
 		guess.player = parseInt(dom.input.value);
 
@@ -59,10 +59,10 @@
 
 
 
-
+// Creates function that the click is run through and checks if you have enough guesses left
 	var limitCheck = function(){
 		if(guess.limit < 0){
-			console.log("You've Reached your Guess limit");
+			dom.output.innerHTML = ("You've Reached your Guess limit");
 			dom.button.removeEventListener('click', limitCheck, false);
 		}else{
 			numberVal();
@@ -73,22 +73,23 @@
 
 
 
-	
+// FUNCTION That checks your guess vs the random number, if you win there is a special surprise  
 	var winnerCheck = function(){
 		if(guess.player == magicNum){
-			console.log("winner winner");
+			dom.output.innerHTML = ("Congrats you've Won The Guessing Game, Enjoy this video!");
+			window.open("https://www.youtube.com/watch?v=2KH2gc11XQU")
 			dom.button.removeEventListener('click', limitCheck, false)
 		}else if(guess.player > magicNum){
-			console.log("You have entered a number that is to high, please try one lower. You have " + guess.limit + " guesses left");
+			cdom.output.innerHTML = ("You have entered a number that is to high, please try one lower. You have " + guess.limit + " guesses left");
 		}else{
-			console.log('You have entered a number that is to low, please try one that is larger. You have ' + guess.limit + " guesses left");
+			dom.output.innerHTML = ('You have entered a number that is to low, please try one that is larger. You have ' + guess.limit + " guesses left");
 		}
 
 		}
 
 	
 
-
+//The Game 
 	var game = function(){
 		guess.player = parseInt(dom.input.value);
 		guess.limit--;
@@ -97,14 +98,15 @@
 		
 
 		if(guess.limit == 0 && guess.made == 3 && guess.player == magicNum){
-			dom.output.innerHTML = "You've Reached your Guess Limit, Thank you come again and now won in the nick of time";
+			dom.output.innerHTML = "You've Reached your Guess Limit, Thankfully you won in the nick of time. Enjoy this video!";
+			window.open("https://www.youtube.com/watch?v=2KH2gc11XQU");
 			dom.button.removeEventListener('click', limitCheck, false);
 		}else if(guess.limit == 0 && guess.made == 3){
 			dom.output.innerHTML = "You've Reached your Guess Limit, Thank you come again";
 			dom.button.removeEventListener('click', limitCheck, false);
 		}
 		else if(guess.limit == 0 && guess.made == 3){
-			console.log("You've Reached your limit");
+			dom.output.innerHTML = ("You've Reached your limit");
 			dom.output.innerHTML = "You've Reached your Guess Limit, Thank you come again";
 			dom.button.removeEventListener('click', limitCheck, false);
 		}else{
