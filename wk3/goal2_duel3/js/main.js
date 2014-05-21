@@ -10,22 +10,23 @@ file: main.js
 
 (function(){
    
-
+    //variable objects for fighter 1 "godzilla"
     var fighterOne = {
         name : "Godzilla",
         health : 100, 
         maxDamage : 50,
         minDamage : 25
     };
-
+    // variable object for figheter 2 "megallon"
     var fighterTwo = {
         name : "Megallon", 
         health : 100, 
         maxDamage : 50,
         minDamage : 25
     };
-    var round = 1;
 
+    var round = 1;
+    // var document object for the main 4 items in the html file
     var dom = {
         fighter1_txt : document.getElementById('godzilla'),
         fighter2_txt : document.getElementById('megallon'),
@@ -38,7 +39,7 @@ file: main.js
 dom.button.addEventListener('click', fight, false);
 
 function fight(){
-       
+                // Random Damage done per click
                 var damageFighterOne = Math.floor(Math.random()*(fighterOne.maxDamage-fighterOne.minDamage)+fighterOne.minDamage);
                 var damageFighterTwo = Math.floor(Math.random()*(fighterTwo.maxDamage-fighterTwo.minDamage)+fighterTwo.minDamage);
 
@@ -46,7 +47,7 @@ function fight(){
                 fighterOne.health-=damageFighterTwo;
                 fighterTwo.health-=damageFighterOne;
 
-
+            //condintional statement that defines the outcome of every click if round >10 then fight is done, and no more clicks, if a fighter is dead or both are dead no more clicks 
             if(round > 10){
                 dom.round.innerHTML = "<p> The Fighters: " + fighterOne.name + " and " + fighterTwo.name + " have fought to a draw in 10 rounds!</p>"
                 dom.fighter1_txt.innerHTML = "<p>" + fighterOne.name + ":" + fighterOne.health + "</p>";
