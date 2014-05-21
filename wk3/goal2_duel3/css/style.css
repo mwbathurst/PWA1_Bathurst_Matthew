@@ -13,23 +13,31 @@ body{
 }
 
 #godzilla{
-	margin: 0px 0px 0px 15%;
+	margin: 0px 0px 0px 0%;
 	float:left;
 }
 
+#round{
+	margin: 0px 0px 0px 0%;
+	float: center;
+}
 #megallon{
-	margin: 0px 0px 0px 59%;
-	float:left;
+	margin: 0px 0px 0px 0%;
+	float:right;
 }
 
 #godzilla p{
 	font-family: arial;
-	font-size:  25px;
+	font-size:  20px;
 }
 
+#round p{
+	font-family: arial;
+	font-size:  20px;
+}
 #megallon p{
 	font-family: arial;
-	font-size:  25px;
+	font-size:  20px;
 }
 
 #fight_btn{
@@ -93,7 +101,7 @@ body{
 }
 
 #round_number input{
-	width: 113px;
+	width: 135px;
 }
 
 .clear{

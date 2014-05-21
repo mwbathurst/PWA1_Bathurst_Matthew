@@ -8,7 +8,57 @@ file: main.js
 
  */
 (function(){
-    console.log("It's Fight Night");
+
+/* For personal organization, practice, and the ability to focus on the major changes needed for this assignment to work properly,
+I decided to start fresh with the code and commented out the entire previous version, so I can get better practice with objects and such.
+*/
+
+var fighterOne = {
+    name: "Godzilla",
+    damage : 50,
+    health : 100
+};
+
+var fighterTwo = {
+    name: "Megallon",
+    damage : 50,
+    health : 100
+};
+
+var dom ={
+        fighter1_txt : document.querySelector('#godzilla'),
+        fighter2_txt : document.querySelector('#megallon'),
+        round : document.querySelector('#round'),
+        button : document.querySelector('#fight_btn')
+
+    };
+
+    
+
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+console.log("It's Fight Night");
     var fighterOne = ["Godzilla", 100, 50, 25];
     var fighterTwo = ["Megallon", 100, 50, 25];
 
@@ -38,7 +88,7 @@ file: main.js
 
 
     //round intializer 
-    var round = 1;
+   /* var round = 1;
 
 
 
@@ -99,5 +149,4 @@ file: main.js
             }
             return result;
         }
-
-})();
+*/ 
