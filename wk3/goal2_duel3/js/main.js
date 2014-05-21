@@ -25,7 +25,8 @@ file: main.js
     };
     var round = 1;
 
-
+    var fighter1_txt = document.getElementById('godzilla');
+    console.log(fighter1_txt.innerHTML);
 
         function fight(){
           
@@ -46,6 +47,7 @@ file: main.js
                 matchResult = winnerCheck();
                 // This Conditional outputs the results of the winnerCheck() function RESULTS to both a new alert allowing the user to continue to search for the winner or announcing the winner, also it creates a console log of round results for the user to view, in future versions this data could be converted to a set of arrays for some form of data harvesting if so desired
                 if(matchResult === "No Winner!"){
+                    fighter1_txt.innerHTML = "<p>" + fighterOne.name + ":" + fighterOne.health + "</p>";
                     alert("Round " + round + ": " + fighterOne.name + ":" + fighterOne.health + " " + fighterTwo.name + ":" + fighterTwo.health);
                     console.log("Round", round, fighterOne.name + ":" + fighterOne.health + " " + fighterTwo.name + ":" + fighterTwo.health);
                     round++;
