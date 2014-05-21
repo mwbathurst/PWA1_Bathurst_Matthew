@@ -9,7 +9,8 @@ file: main.js
  */
 
 (function(){
-    console.log("It's Fight Night");
+   
+
     var fighterOne = {
         name : "Godzilla",
         health : 100, 
@@ -21,7 +22,7 @@ file: main.js
         name : "Megallon", 
         health : 100, 
         maxDamage : 50,
-        minDamage :25
+        minDamage : 25
     };
     var round = 1;
 
@@ -32,14 +33,60 @@ file: main.js
         button : document.getElementById('fight_btn')
     };
 
-    console.log(dom.fighter1_txt.innerHTML);
-    console.log(dom.fighter2_txt.innerHTML);
-    console.log(dom.round.innerHTML);
-    console.log(dom.button.innerHTML)
+ 
 
 dom.button.addEventListener('click', fight, false);
+
+function fight(){
+       
+                var damageFighterOne = Math.floor(Math.random()*(fighterOne.maxDamage-fighterOne.minDamage)+fighterOne.minDamage);
+                var damageFighterTwo = Math.floor(Math.random()*(fighterTwo.maxDamage-fighterTwo.minDamage)+fighterTwo.minDamage);
+
+                //Damage Inflicted and Recorded per round
+                fighterOne.health-=damageFighterTwo;
+                fighterTwo.health-=damageFighterOne;
+
+
+            if(round > 10){
+                dom.round.innerHTML = "<p> The Fighters: " + fighterOne.name + " and " + fighterTwo.name + " have fought to a draw in 10 rounds!</p>"
+                dom.fighter1_txt.innerHTML = "<p>" + fighterOne.name + ":" + fighterOne.health + "</p>";
+                dom.fighter2_txt.innerHTML = "<p>" + fighterTwo.name + ":" + fighterTwo.health + "</p>";
+                dom.button.removeEventListener('click', fight, false);
+            }else if(fighterOne.health > 0 && fighterTwo.health > 0){
+              dom.round.innerHTML = "<p> Results after Round " + round + "</p>";
+              dom.fighter1_txt.innerHTML = "<p>" + fighterOne.name + ":" + fighterOne.health + "</p>";
+              dom.fighter2_txt.innerHTML = "<p>" + fighterTwo.name + ":" + fighterTwo.health + "</p>";
+            }else if(fighterOne.health > 0 && fighterTwo.health < 0){
+                dom.round.innerHTML = "<p> The Winner in Round " + round + " is " + fighterOne.name + "</p>";
+                dom.fighter1_txt.innerHTML = "<p>" + fighterOne.name + ":" + fighterOne.health + "</p>";
+                dom.fighter2_txt.innerHTML = "<p>" + fighterTwo.name + ":" + fighterTwo.health + "</p>";
+                dom.button.removeEventListener('click', fight, false);
+            }else if(fighterOne.health < 0 && fighterTwo.health > 0){
+                dom.round.innerHTML = "<p> The Winner in Round " + round + " is " + fighterTwo.name + "</p>";
+                dom.fighter1_txt.innerHTML = "<p>" + fighterOne.name + ":" + fighterOne.health + "</p>";
+                dom.fighter2_txt.innerHTML = "<p>" + fighterTwo.name + ":" + fighterTwo.health + "</p>";
+                dom.button.removeEventListener('click', fight, false);
+           }else{
+                dom.round.innerHTML = "<p> The Fighters: " + fighterOne.name + " and " + fighterTwo.name + " have killed each other in Round " +  round + "</p>"
+                dom.fighter1_txt.innerHTML = "<p>" + fighterOne.name + ":" + fighterOne.health + "</p>";
+                dom.fighter2_txt.innerHTML = "<p>" + fighterTwo.name + ":" + fighterTwo.health + "</p>";
+                dom.button.removeEventListener('click', fight, false);
+            }
+             round++
+}
+
+
+
+
+
+
+
+
+
+/*
+
         function fight(){
-          
+    
             // Random Damage Calculator based upon given equation.
             // FightIntroduction
             alert("Welcome to the Grudge Match of the Century! \nToday we have:");
@@ -68,6 +115,7 @@ dom.button.addEventListener('click', fight, false);
                 }
 
             }
+
         }
   
 
@@ -78,8 +126,10 @@ dom.button.addEventListener('click', fight, false);
             var result = "No Winner!";
             //Conditional statement that will output results BASED UPON HEALTH AND/OR ROUND
             // Really the only time you''ll see the 10 round check nested conditional is if the damage of the fighters are modified to a lower amount
-            if(fighterOne.health < 1 && fighterTwo.health < 1){
-                  result = dom.round.innerHTML = "<p> In Round " + round + ": Both " + fighterOne.name+ " and " + fighterTwo.name + " have died, NO WINNER!</p>";
+                   if(fighterOne.health < 1 && fighterTwo.health < 1){
+                    result = Dead;
+                    dom.fighter1_txt.innerHTML = "<p>" + fighterOne.name + ": " + fighterOne.health + "</p>"; 
+                    dom.round.innerHTML = "<p> In Round " + round + ": Both " + fighterOne.name+ " and " + fighterTwo.name + " have died, NO WINNER!</p>";
             }else if(fighterOne.health< 1){
                 result = dom.round.innerHTML = "<p> In Round " + round + ". " + fighterOne.name + " has died. AND YOUR WINNER IS! " + fighterTwo.name.toUpperCase() +"! </p>";
             }else if(fighterTwo.health < 1){
@@ -96,6 +146,8 @@ dom.button.addEventListener('click', fight, false);
             }
             return result;
         }
+        */
+        
 
 
 })();
