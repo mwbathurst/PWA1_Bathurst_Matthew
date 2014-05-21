@@ -25,9 +25,19 @@ file: main.js
     };
     var round = 1;
 
-    var fighter1_txt = document.getElementById('godzilla');
-    console.log(fighter1_txt.innerHTML);
+    var dom = {
+        fighter1_txt : document.getElementById('godzilla'),
+        fighter2_txt : document.getElementById('megallon'),
+        round : document.getElementById('round'),
+        button : document.getElementById('fight_btn')
+    };
 
+    console.log(dom.fighter1_txt.innerHTML);
+    console.log(dom.fighter2_txt.innerHTML);
+    console.log(dom.round.innerHTML);
+    console.log(dom.button.innerHTML)
+
+dom.button.addEventListener('click', fight, false);
         function fight(){
           
             // Random Damage Calculator based upon given equation.
@@ -41,13 +51,13 @@ file: main.js
                 var damageFighterTwo = Math.floor(Math.random()*(fighterTwo.maxDamage-fighterTwo.minDamage)+fighterTwo.minDamage);
 
                 //Damage Inflicted and Recorded per round
-                fighterOne.health-=damageFighterOne;
-                fighterTwo.health-=damageFighterTwo;
+                fighterOne.health-=damageFighterTwo;
+                fighterTwo.health-=damageFighterOne;
 
                 matchResult = winnerCheck();
                 // This Conditional outputs the results of the winnerCheck() function RESULTS to both a new alert allowing the user to continue to search for the winner or announcing the winner, also it creates a console log of round results for the user to view, in future versions this data could be converted to a set of arrays for some form of data harvesting if so desired
                 if(matchResult === "No Winner!"){
-                    fighter1_txt.innerHTML = "<p>" + fighterOne.name + ":" + fighterOne.health + "</p>";
+                    dom.fighter1_txt.innerHTML = "<p>" + fighterOne.name + ":" + fighterOne.health + "</p>";
                     alert("Round " + round + ": " + fighterOne.name + ":" + fighterOne.health + " " + fighterTwo.name + ":" + fighterTwo.health);
                     console.log("Round", round, fighterOne.name + ":" + fighterOne.health + " " + fighterTwo.name + ":" + fighterTwo.health);
                     round++;
@@ -59,7 +69,7 @@ file: main.js
 
             }
         }
-    fight();
+  
 
         //function that will be called to tell who the winner is
 
@@ -69,9 +79,9 @@ file: main.js
             //Conditional statement that will output results BASED UPON HEALTH AND/OR ROUND
             // Really the only time you''ll see the 10 round check nested conditional is if the damage of the fighters are modified to a lower amount
             if(fighterOne.health < 1 && fighterTwo.health < 1){
-                result = fighterOne.name+ " and " + fighterTwo.name + " have died, NO WINNER!";
+                  result = dom.round.innerHTML = "<p> In Round " + round + ": Both " + fighterOne.name+ " and " + fighterTwo.name + " have died, NO WINNER!</p>";
             }else if(fighterOne.health< 1){
-                result = fighterOne.name + " has died. AND YOUR WINNER IS! " + fighterTwo.name.toUpperCase() +"!";
+                result = dom.round.innerHTML = "<p> In Round " + round + ". " + fighterOne.name + " has died. AND YOUR WINNER IS! " + fighterTwo.name.toUpperCase() +"! </p>";
             }else if(fighterTwo.health < 1){
                 result = fighterTwo.name + " has died. AND YOUR winner is! " + fighterOne.name.toUpperCase() +"!";
             }else if(round == 10 && fighterOne.health > 1 && fighterTwo.health > 1){
@@ -86,5 +96,6 @@ file: main.js
             }
             return result;
         }
+
 
 })();
