@@ -12,22 +12,22 @@ body{
 	height: 100%;
 }
 
-#kabal{
+#godzilla{
 	margin: 0px 0px 0px 15%;
 	float:left;
 }
 
-#kratos{
+#megallon{
 	margin: 0px 0px 0px 59%;
 	float:left;
 }
 
-#kabal p{
+#godzilla p{
 	font-family: arial;
 	font-size:  25px;
 }
 
-#kratos p{
+#megallon p{
 	font-family: arial;
 	font-size:  25px;
 }
