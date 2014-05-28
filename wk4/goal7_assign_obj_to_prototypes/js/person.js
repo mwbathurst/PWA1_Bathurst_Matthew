@@ -9,11 +9,12 @@ file: person.js
 (function(){
 
 window.Person = Person;
-
+Person.jobs = ["he Don", "Fixer", "Soldier"];
+Person.actions = ["Wacking", "Smacking", "Jacking", "Hitting", "Sleeping", "Doing Time"];
 
 
 function Person(name, row){
-	
+
 }
 
 
