@@ -8,7 +8,13 @@ file: person.js
 
 (function(){
 
+window.Person = Person;
 
+
+
+function Person(name, row){
+	
+}
 
 
 

@@ -8,6 +8,10 @@ file: main.js
 
 (function(){
 
+var capPeople = 5;
+var people = [];
+var names = ["Vito Corleone", "Michael Corleone", "Sonny Corleone", "Fredo Corleone", "Tom Hagen"];
+var interval;
 
 
 
